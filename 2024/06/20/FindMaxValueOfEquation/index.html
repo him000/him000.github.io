@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="John Doe" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      FindMaxValueOfEquation 
+      
+      
+      |
+    
+     HIM
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="/images/HIM.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">HIM</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">首页</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">文章目录</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">分类</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">标签</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">友情链接</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">关于</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">FindMaxValueOfEquation</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2025-06-20 13:50:37
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" title="算法">
+                    <b>#</b> 算法
+                  </a>
+                </span>
+                
+                <span class="span--category">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97II/" title="单调队列II">
+                    <b>#</b> 单调队列II
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97II/" title="单调队列II">
+                    #单调队列II
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> study.单调队列II;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: HIM</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>  困难</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>: 2024/6/20 14:54</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 满足不等式的最大值</span></span><br><span class="line"><span class="comment">// 给你一个数组 points 和一个整数 k</span></span><br><span class="line"><span class="comment">// 数组中每个元素都表示二维平面上的点的坐标，并按照横坐标 x 的值从小到大排序</span></span><br><span class="line"><span class="comment">// 也就是说 points[i] = [xi, yi]</span></span><br><span class="line"><span class="comment">// 并且在 1 &lt;= i &lt; j &lt;= points.length 的前提下，xi &lt; xj 总成立</span></span><br><span class="line"><span class="comment">// 请你找出 yi + yj + |xi - xj| 的 最大值，</span></span><br><span class="line"><span class="comment">// 其中 |xi - xj| &lt;= k 且 1 &lt;= i &lt; j &lt;= points.length</span></span><br><span class="line"><span class="comment">// 题目测试数据保证至少存在一对能够满足 |xi - xj| &lt;= k 的点。</span></span><br><span class="line"><span class="comment">// 测试链接 : https://leetcode.cn/problems/max-value-of-equation/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FindMaxValueOfEquation</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MAIN</span> <span class="operator">=</span> <span class="number">100001</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span>[] deque1 = <span class="keyword">new</span> <span class="title class_">int</span>[MAIN];</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span>[] deque2 = <span class="keyword">new</span> <span class="title class_">int</span>[MAIN];</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> h1,t1,h2,t2;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//思路错了</span></span><br><span class="line">    <span class="comment">//大体想法：在滑动指针的框架下，保持窗口内的 yi-xi 最大值</span></span><br><span class="line">    <span class="comment">//滑动指针单调性分析： (xj - xi) 一定大于0，对于某点xi 来说，xj越往后，xj - xi的结果越大，所以符合单调递增</span></span><br><span class="line">    <span class="comment">// 转为分析 yi-xi + yj+xj最大值，可见yj+xj 是固定的后一个点的值。</span></span><br><span class="line">    <span class="comment">//如果保持 在符合条件下 保持窗口内yi-xi 和 yj+xj的最大值，那答案一定是两队头部相加</span></span><br><span class="line">    <span class="comment">//我感觉思路是对的，但做不出来呜呜呜。下面题解是错的</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">findMaxValueOfEquation1</span><span class="params">(<span class="type">int</span>[][] arr, <span class="type">int</span> k)</span> &#123;</span><br><span class="line"></span><br><span class="line">        t1 = t2 = h2 = h1 = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//先让首个差值入队</span></span><br><span class="line">        deque1[t1++] = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//y1-x1大到小入队</span></span><br><span class="line">        <span class="comment">//y2+x2 大到小入队</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> Integer.MIN_VALUE;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> <span class="number">1</span>, l = <span class="number">0</span>, diff, sum, pre = -<span class="number">1</span>; r &lt; arr.length; r++) &#123;</span><br><span class="line">            diff = arr[r][<span class="number">1</span>] - arr[r][<span class="number">0</span>];</span><br><span class="line">            sum = arr[r][<span class="number">1</span>]  +  arr[r][<span class="number">0</span>];</span><br><span class="line">            <span class="comment">//右扩</span></span><br><span class="line">            <span class="comment">// 更新队尾</span></span><br><span class="line">            <span class="keyword">while</span> (l &lt; r &amp;&amp; h1 &lt; t1 &amp;&amp; arr[deque1[t1 - <span class="number">1</span>]][<span class="number">1</span>] - arr[deque1[t1 - <span class="number">1</span>]][<span class="number">0</span>]  &lt; diff)&#123;</span><br><span class="line">                t1--;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="comment">//            while (l &lt; r &amp;&amp; h2 &lt; t2 &amp;&amp; arr[deque2[t2 - 1]][1] + arr[deque2[t2 - 1]][0]  &lt; sum)&#123;</span></span><br><span class="line"><span class="comment">//                t2--;</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="comment">//入队</span></span><br><span class="line">            deque1[t1++] = r;</span><br><span class="line"><span class="comment">//            deque2[t2++] = r;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 不符合条件左缩</span></span><br><span class="line">            <span class="comment">// 更新队头</span></span><br><span class="line">            <span class="keyword">while</span> (l &lt; r &amp;&amp; arr[r][<span class="number">0</span>] - arr[l][<span class="number">0</span>] &gt; k)&#123;</span><br><span class="line">                <span class="keyword">if</span> (l == deque1[h1])&#123;</span><br><span class="line">                    h1++;</span><br><span class="line">                &#125;</span><br><span class="line"><span class="comment">//                if (l == deque2[h2])&#123;</span></span><br><span class="line"><span class="comment">//                    h2++;</span></span><br><span class="line"><span class="comment">//                &#125;</span></span><br><span class="line">                l++;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="comment">//            pre = pre == deque1[t1 - 1] ? pre : deque1[h1];</span></span><br><span class="line">            <span class="keyword">if</span> (l &gt; pre)&#123;</span><br><span class="line">                pre = deque1[h1];</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//更新答案</span></span><br><span class="line">            <span class="keyword">if</span> (l &lt; r )&#123;</span><br><span class="line">                diff = arr[pre][<span class="number">1</span>] - arr[pre][<span class="number">0</span>];</span><br><span class="line"><span class="comment">//                sum = arr[deque2[h2]][1] + arr[deque2[h2]][0] : 0;</span></span><br><span class="line">                ans = Math.max(ans, sum + diff);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//保留符合条件的窗口下的上一个最大值</span></span><br><span class="line">            pre = deque1[h1];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//思维固化了，总是想用滑动窗口 + 单调队列来解题</span></span><br><span class="line">    <span class="comment">//以下思路是：</span></span><br><span class="line">    <span class="comment">//针对某点j，j前面的点i拿符合条件下 最大的 y-x,则是点j这一点的最优值</span></span><br><span class="line">    <span class="comment">//所以用单调队列记录 符合条件的范围内[....j） 中y-x的单调性</span></span><br><span class="line">    <span class="comment">//当队头和当前点j 不符合条件时， 队头出队</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">findMaxValueOfEquation</span><span class="params">(<span class="type">int</span>[][] arr, <span class="type">int</span> k)</span>&#123;</span><br><span class="line">        h1 = t1 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> Integer.MIN_VALUE;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> <span class="number">0</span>, diff, sum; r &lt; arr.length; r++) &#123;</span><br><span class="line">            sum = arr[r][<span class="number">0</span>] + arr[r][<span class="number">1</span>];</span><br><span class="line">            <span class="comment">//不符合条件 队头出队</span></span><br><span class="line">            <span class="keyword">while</span> (h1 &lt; t1 &amp;&amp; arr[r][<span class="number">0</span>] - arr[deque1[h1]][<span class="number">0</span>] &gt; k)&#123;</span><br><span class="line">                h1++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//要在当前位置更新队列前  否则队头可能会被更掉</span></span><br><span class="line">            <span class="comment">//更新答案</span></span><br><span class="line">            <span class="keyword">if</span> (h1 &lt; t1)&#123;</span><br><span class="line">                diff = arr[deque1[h1]][<span class="number">1</span>] - arr[deque1[h1]][<span class="number">0</span>];</span><br><span class="line">                ans = Math.max(ans, sum + diff);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//入队</span></span><br><span class="line">            diff = arr[r][<span class="number">1</span>] -  arr[r][<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">while</span> (h1 &lt; t1 &amp;&amp; diff &gt;= arr[deque1[t1 - <span class="number">1</span>]][<span class="number">1</span>] - arr[deque1[t1 - <span class="number">1</span>]][<span class="number">0</span>])&#123;</span><br><span class="line">                t1--;</span><br><span class="line">            &#125;</span><br><span class="line">            deque1[t1++] = r;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[][] arr = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">5</span>][<span class="number">2</span>];</span><br><span class="line">        arr[<span class="number">0</span>] = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">17</span>,<span class="number">5</span>&#125;;</span><br><span class="line">        arr[<span class="number">1</span>] = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">10</span>,-<span class="number">8</span>&#125;;</span><br><span class="line">        arr[<span class="number">2</span>] = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">5</span>,-<span class="number">13</span>&#125;;</span><br><span class="line">        arr[<span class="number">3</span>] = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">2</span>,<span class="number">7</span>&#125;;</span><br><span class="line">        arr[<span class="number">4</span>] = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">8</span>,-<span class="number">14</span>&#125;;</span><br><span class="line">        System.out.println(findMaxValueOfEquation(arr, <span class="number">4</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2024/06/19/ShortestSubarray/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2025-06-20 13:50:37
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E7%AE%97%E6%B3%95/" title="算法">
+                        <b>#</b> 算法
+                      </a>
+                    </span>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E7%AE%97%E6%B3%95/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97II/" title="单调队列II">
+                        <b>#</b> 单调队列II
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97II/" title="单调队列II">
+                        #单调队列II
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2024/06/21/MaxTaskAssign/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+  
+    <script async type="text/javascript" src="/plugins/valine.min.js" onload="loadValineSuc(this)"></script>
+  
+
+  <div id="vcomments"></div>
+
+  <script>
+    function loadValineSuc() {
+      new Valine({
+        el: '#vcomments',
+        appId: 'zhRxerP78Mwz1eyKSROOzCM3-gzGzoHsz',
+        appKey: 'Hga99zyJkYgj300Vq2qIQQ3x',
+        placeholder: 'Welcome!',
+        avatar: 'retro',
+        lang: 'zh-CN'
+      })
+    }
+  </script>
+
+    <style>
+      .comments-container .v .vempty {
+        display: none!important;
+      }
+    </style>
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+              <a title="github" target="_blank" rel="noopener" href="https://github.com/him000/him000.github.io">
+                <i class="iconfont icon-github"></i>
+              </a>
+              
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2025 Oranges</a>
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+  
+    <div class="footer-views">
+      
+          本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        
+      
+          本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        
+      
+          本站访客数<span id="busuanzi_value_site_uv"></span>人
+        
+      
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + FindMaxValueOfEquation + '&url=' + http%3A%2F%2Fexample.com%2F2024%2F06%2F20%2FFindMaxValueOfEquation%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2024/06/20/FindMaxValueOfEquation/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
+  
+  
+<script src="/js/shares.js"></script>
+
+
+
+      </div>
+    </div>
+  
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,d=o();function o(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=o());for(var e,i=0;i<d.length;i++)0<=(e=(e=d[i]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,a,n,o=d[i];e=function(){d=d.filter(function(t){return o!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(o)},(t=o).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,n=t.getAttribute("data-original"),a.onload=function(){t.src=n,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=n},t.src!==n&&(a.src=n)))}()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)}(this);</script></body>
+</html>

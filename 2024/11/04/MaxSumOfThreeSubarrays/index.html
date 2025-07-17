@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="John Doe" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      MaxSumOfThreeSubarrays 
+      
+      
+      |
+    
+     HIM
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="/images/HIM.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">HIM</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">首页</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">文章目录</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">分类</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">标签</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">友情链接</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">关于</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">MaxSumOfThreeSubarrays</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2025-06-20 13:50:37
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" title="算法">
+                    <b>#</b> 算法
+                  </a>
+                </span>
+                
+                <span class="span--category">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%AD%90%E6%95%B0%E7%BB%84%E6%9C%80%E5%A4%A7%E7%B4%AF%E5%8A%A0%E5%92%8C%E9%97%AE%E9%A2%98%E6%89%A9%E5%B1%95/" title="子数组最大累加和问题扩展">
+                    <b>#</b> 子数组最大累加和问题扩展
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E5%AD%90%E6%95%B0%E7%BB%84%E6%9C%80%E5%A4%A7%E7%B4%AF%E5%8A%A0%E5%92%8C%E9%97%AE%E9%A2%98%E6%89%A9%E5%B1%95/" title="子数组最大累加和问题扩展">
+                    #子数组最大累加和问题扩展
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> study.动态规划.子数组最大累加和问题扩展;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: HIM</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>: 2024/11/4 16:58</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 三个无重叠子数组的最大和</span></span><br><span class="line"><span class="comment">// 给你一个整数数组 nums 和一个整数 k</span></span><br><span class="line"><span class="comment">// 找出三个长度为 k 、互不重叠、且全部数字和（3 * k 项）最大的子数组</span></span><br><span class="line"><span class="comment">// 并返回这三个子数组</span></span><br><span class="line"><span class="comment">// 以下标的数组形式返回结果，数组中的每一项分别指示每个子数组的起始位置</span></span><br><span class="line"><span class="comment">// 如果有多个结果，返回字典序最小的一个</span></span><br><span class="line"><span class="comment">// 测试链接 : https://leetcode.cn/problems/maximum-sum-of-3-non-overlapping-subarrays/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MaxSumOfThreeSubarrays</span> &#123;</span><br><span class="line">    <span class="comment">//ps:原思路， 二维dp，比较复杂！！！！！！</span></span><br><span class="line">    <span class="comment">//有点思路噢</span></span><br><span class="line">    <span class="comment">//一开始最先想到暴力遍历，直接3边for循环</span></span><br><span class="line">    <span class="comment">//然后想着该怎么优化这个遍历，-》 很多重复遍历 -》 优化重复遍历 -》 记忆化搜索 -》 从后往前dp</span></span><br><span class="line">    <span class="comment">//定义dp[i][j]为 i..len位置上，至少为j个长度为k数组的最大子数组</span></span><br><span class="line">    <span class="comment">//关键在于取不取当前位置i</span></span><br><span class="line">    <span class="comment">//dp[i][j] = dp[i - 1][j]   不取当前位置</span></span><br><span class="line">    <span class="comment">//i + k &lt;= len:</span></span><br><span class="line">    <span class="comment">//dp[i][j] = sum(nums[i..k]) + dp[i + k][j - 1] // 因为取了当前位置开头的一个子数组，所以后面要取j - 1个子数组</span></span><br><span class="line">    <span class="comment">//两种情况取最大，并记录位置到位置数组中</span></span><br><span class="line">    <span class="comment">//怎么记录结果位置呢？用额外的数组记录每一个dp[i][j]所关联的位置？</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span>[] maxSumOfThreeSubarrays0(<span class="type">int</span>[] nums, <span class="type">int</span> k) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        <span class="comment">//先弄前缀和数组</span></span><br><span class="line">        <span class="comment">//i 为从后往前的长度</span></span><br><span class="line">        <span class="type">int</span>[] presum = <span class="keyword">new</span> <span class="title class_">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            presum[i] = presum[i - <span class="number">1</span>] + nums[n - i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//记录dp关联的位置</span></span><br><span class="line">        Map&lt;String, List&lt;Integer&gt;&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//i 为长度， j为至少组成的子数组个数</span></span><br><span class="line">        <span class="type">int</span>[][] dp = <span class="keyword">new</span> <span class="title class_">int</span>[n + <span class="number">1</span>][<span class="number">4</span>];</span><br><span class="line">        <span class="comment">//先初始化dp</span></span><br><span class="line">        <span class="comment">//i &lt; k 的都为0， j = 0都为0</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; k)&#123;</span><br><span class="line">                Arrays.fill(dp[i], <span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            dp[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> <span class="number">0</span>, l = <span class="number">0</span>, m = <span class="number">0</span>, r = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//直接从长度为k开始遍历</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> k, sum; i &lt;= n; i++) &#123;</span><br><span class="line">            sum = presum[i] - presum[i - k];</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>, ni,nj; j &lt; <span class="number">4</span>; j++) &#123;</span><br><span class="line">                <span class="comment">//前缀和为i长度 和 前缀和为i - k长度差值，即当前子数组和</span></span><br><span class="line">                <span class="comment">//不取当前位置开头的子数组</span></span><br><span class="line">                dp[i][j] = dp[i - <span class="number">1</span>][j];</span><br><span class="line">                List&lt;Integer&gt; list = map.getOrDefault(i + <span class="string">&quot;_&quot;</span> + j, <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;());</span><br><span class="line">                <span class="comment">//取当前位置开头子数组</span></span><br><span class="line">                ni = i - k;</span><br><span class="line">                nj = j - <span class="number">1</span>;</span><br><span class="line">                <span class="comment">//这里相等时也要更新（题目要求字典序最小）</span></span><br><span class="line">                <span class="keyword">if</span> (dp[i][j] &lt;= sum + dp[ni][nj])&#123;</span><br><span class="line">                    dp[i][j] = sum + dp[ni][nj];</span><br><span class="line">                    <span class="comment">//新增当前位置</span></span><br><span class="line">                    list.add(n - i);</span><br><span class="line">                    <span class="comment">//新增之前的位置</span></span><br><span class="line">                    list.addAll(map.getOrDefault(ni + <span class="string">&quot;_&quot;</span> + nj, <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;()));</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">//不取当前位置时，位置结果取上一个结果</span></span><br><span class="line">                    ni = i - <span class="number">1</span>;</span><br><span class="line">                    nj = j;</span><br><span class="line">                    list.addAll(map.getOrDefault(ni + <span class="string">&quot;_&quot;</span> + nj, <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;()));</span><br><span class="line">                &#125;</span><br><span class="line">                map.put(i + <span class="string">&quot;_&quot;</span> + j, list);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//更新答案</span></span><br><span class="line">                <span class="keyword">if</span> (j == <span class="number">3</span> &amp;&amp; list.size() == <span class="number">3</span> &amp;&amp; max &lt;= dp[i][j])&#123;</span><br><span class="line">                    l = list.get(<span class="number">0</span>);</span><br><span class="line">                    m = list.get(<span class="number">1</span>);</span><br><span class="line">                    r = list.get(<span class="number">2</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;l,m,r&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//左神思路。 代码是根据思路自己写的</span></span><br><span class="line">    <span class="comment">//针对 3个子数组 去分解为 左）中 )右 中找一个最大和的子数组即可</span></span><br><span class="line">    <span class="comment">//即枚举长度为k的子数组中，左max + 当前中间枚举子数组（长度为k） + 右max</span></span><br><span class="line">    <span class="comment">//全局取最大答案</span></span><br><span class="line">    <span class="comment">//所以问题简化为0..i范围找长度为k的最大和子数组</span></span><br><span class="line">    <span class="comment">//定义dp[i]为0..i - 1范围内长度为k的最大和子数组</span></span><br><span class="line">    <span class="comment">//dp[i] = Math.max(dp[i-1], sum(i-k,i)), 即用之前的最大和子数组 与 当前i-k..i范围的子数组和做对比，取最大。</span></span><br><span class="line">    <span class="comment">//那怎么记录每个最大和子数组的开始位置呢？</span></span><br><span class="line">    <span class="comment">//另外用一个数组记录每个最大和子数组的开始位置</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span>[] maxSumOfThreeSubarrays1(<span class="type">int</span>[] nums, <span class="type">int</span> k)&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        <span class="comment">//求长度为k的数组前缀和，这里的索引表示长度</span></span><br><span class="line">        <span class="type">int</span>[] sums = <span class="keyword">new</span> <span class="title class_">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> <span class="number">0</span>, l = <span class="number">0</span>, sum = <span class="number">0</span>; r &lt; n; l++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (r - l + <span class="number">1</span> &lt;= k)&#123;</span><br><span class="line">                sum += nums[r++];</span><br><span class="line">            &#125;</span><br><span class="line">            sums[r] = sum;</span><br><span class="line">            sum -= nums[l];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//求0....i - 1范围长度为k的最大和子数组</span></span><br><span class="line">        <span class="comment">//记录数组开始位置</span></span><br><span class="line">        <span class="type">int</span>[] preIndex = <span class="keyword">new</span> <span class="title class_">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        <span class="type">int</span>[] prefix = <span class="keyword">new</span> <span class="title class_">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        <span class="comment">//这里i代表长度</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> k; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (prefix[i - <span class="number">1</span>] &gt;= sums[i])&#123;</span><br><span class="line">                prefix[i] = prefix[i - <span class="number">1</span>];</span><br><span class="line">                preIndex[i] = preIndex[i - <span class="number">1</span>];</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                prefix[i] = sums[i];</span><br><span class="line">                preIndex[i] = i - k;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//求n....i范围长度为k的最大和子数组 (从后往前数）</span></span><br><span class="line">        <span class="comment">//记录数组开始位置</span></span><br><span class="line">        <span class="type">int</span>[] sufIndex = <span class="keyword">new</span> <span class="title class_">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        <span class="type">int</span>[] suffix = <span class="keyword">new</span> <span class="title class_">int</span>[n + <span class="number">1</span>];<span class="comment">//包含0长度，即n位置时，一个不取</span></span><br><span class="line">        <span class="comment">//这里的i代表索引</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> n - k; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (suffix[i + <span class="number">1</span>] &gt; sums[i + k])&#123;</span><br><span class="line">                suffix[i] = suffix[i + <span class="number">1</span>];</span><br><span class="line">                sufIndex[i] = sufIndex[i + <span class="number">1</span>];</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                suffix[i] = sums[i + k];</span><br><span class="line">                sufIndex[i] = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> <span class="number">0</span>, a = <span class="number">0</span>, b = <span class="number">0</span>, c = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//枚举i..j 长度为k</span></span><br><span class="line">        <span class="comment">//这里的l,r代表索引</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">l</span> <span class="operator">=</span> k, r = <span class="number">2</span> * k - <span class="number">1</span>, sum; r &lt; n - k; r++, l++) &#123;</span><br><span class="line">            <span class="comment">//左边最大 + 当前k长度子数组和 + 右边最大</span></span><br><span class="line">            sum = prefix[l] + sums[r + <span class="number">1</span>] + suffix[r + <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span> (max &lt; sum)&#123;</span><br><span class="line">                max = sum;</span><br><span class="line">                a = preIndex[l];</span><br><span class="line">                b = l;</span><br><span class="line">                c = sufIndex[r + <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;a,b,c&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//这是左神原代码，dp只记录开始位置，更简洁</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span>[] maxSumOfThreeSubarrays(<span class="type">int</span>[] nums, <span class="type">int</span> k) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        <span class="comment">// sums[i] : 以i开头并且长度为k的子数组的累加和</span></span><br><span class="line">        <span class="type">int</span>[] sums = <span class="keyword">new</span> <span class="title class_">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">l</span> <span class="operator">=</span> <span class="number">0</span>, r = <span class="number">0</span>, sum = <span class="number">0</span>; r &lt; n; r++) &#123;</span><br><span class="line">            <span class="comment">// l....r</span></span><br><span class="line">            sum += nums[r];</span><br><span class="line">            <span class="keyword">if</span> (r - l + <span class="number">1</span> == k) &#123;</span><br><span class="line">                sums[l] = sum;</span><br><span class="line">                sum -= nums[l];</span><br><span class="line">                l++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// prefix[i] :</span></span><br><span class="line">        <span class="comment">// 0~i范围上所有长度为k的子数组中，拥有最大累加和的子数组，是以什么位置开头的</span></span><br><span class="line">        <span class="type">int</span>[] prefix = <span class="keyword">new</span> <span class="title class_">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">l</span> <span class="operator">=</span> <span class="number">1</span>, r = k; r &lt; n; l++, r++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (sums[l] &gt; sums[prefix[r - <span class="number">1</span>]]) &#123;</span><br><span class="line">                <span class="comment">// 注意&gt;，为了同样最大累加和的情况下，最小的字典序</span></span><br><span class="line">                prefix[r] = l;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                prefix[r] = prefix[r - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// suffix[i] :</span></span><br><span class="line">        <span class="comment">// i~n-1范围上所有长度为k的子数组中，拥有最大累加和的子数组，是以什么位置开头的</span></span><br><span class="line">        <span class="type">int</span>[] suffix = <span class="keyword">new</span> <span class="title class_">int</span>[n];</span><br><span class="line">        suffix[n - k] = n - k;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">l</span> <span class="operator">=</span> n - k - <span class="number">1</span>; l &gt;= <span class="number">0</span>; l--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (sums[l] &gt;= sums[suffix[l + <span class="number">1</span>]]) &#123;</span><br><span class="line">                <span class="comment">// 注意&gt;=，为了同样最大累加和的情况下，最小的字典序</span></span><br><span class="line">                suffix[l] = l;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                suffix[l] = suffix[l + <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">0</span>, b = <span class="number">0</span>, c = <span class="number">0</span>, max = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 0...i-1    i...j    j+1...n-1</span></span><br><span class="line">        <span class="comment">//   左     中(长度为k)     右</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> p, s, i = k, j = <span class="number">2</span> * k - <span class="number">1</span>, sum; j &lt; n - k; i++, j++) &#123;</span><br><span class="line">            <span class="comment">// 0.....i-1   i.....j  j+1.....n-1</span></span><br><span class="line">            <span class="comment">// 最好开头p      i开头     最好开头s</span></span><br><span class="line">            p = prefix[i - <span class="number">1</span>];</span><br><span class="line">            s = suffix[j + <span class="number">1</span>];</span><br><span class="line">            sum = sums[p] + sums[i] + sums[s];</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; max) &#123;</span><br><span class="line">                <span class="comment">// 注意&gt;，为了同样最大累加和的情况下，最小的字典序</span></span><br><span class="line">                max = sum;</span><br><span class="line">                a = p;</span><br><span class="line">                b = i;</span><br><span class="line">                c = s;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[] &#123; a, b, c &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;2.0&quot;</span>.split(<span class="string">&quot;\\.&quot;</span>)[<span class="number">0</span>];</span><br><span class="line">        System.out.println(Integer.parseInt(s));</span><br><span class="line"><span class="comment">//        maxSumOfThreeSubarrays(new int[]&#123;4,3,2,1&#125;, 1);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2024/10/29/MagicScrollProbelm/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2025-06-20 13:50:37
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E7%AE%97%E6%B3%95/" title="算法">
+                        <b>#</b> 算法
+                      </a>
+                    </span>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E7%AE%97%E6%B3%95/%E5%AD%90%E6%95%B0%E7%BB%84%E6%9C%80%E5%A4%A7%E7%B4%AF%E5%8A%A0%E5%92%8C%E9%97%AE%E9%A2%98%E6%89%A9%E5%B1%95/" title="子数组最大累加和问题扩展">
+                        <b>#</b> 子数组最大累加和问题扩展
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E5%AD%90%E6%95%B0%E7%BB%84%E6%9C%80%E5%A4%A7%E7%B4%AF%E5%8A%A0%E5%92%8C%E9%97%AE%E9%A2%98%E6%89%A9%E5%B1%95/" title="子数组最大累加和问题扩展">
+                        #子数组最大累加和问题扩展
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2024/11/05/ReverseArraySubarrayMaxSum/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+  
+    <script async type="text/javascript" src="/plugins/valine.min.js" onload="loadValineSuc(this)"></script>
+  
+
+  <div id="vcomments"></div>
+
+  <script>
+    function loadValineSuc() {
+      new Valine({
+        el: '#vcomments',
+        appId: 'zhRxerP78Mwz1eyKSROOzCM3-gzGzoHsz',
+        appKey: 'Hga99zyJkYgj300Vq2qIQQ3x',
+        placeholder: 'Welcome!',
+        avatar: 'retro',
+        lang: 'zh-CN'
+      })
+    }
+  </script>
+
+    <style>
+      .comments-container .v .vempty {
+        display: none!important;
+      }
+    </style>
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+              <a title="github" target="_blank" rel="noopener" href="https://github.com/him000/him000.github.io">
+                <i class="iconfont icon-github"></i>
+              </a>
+              
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2025 Oranges</a>
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+  
+    <div class="footer-views">
+      
+          本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        
+      
+          本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        
+      
+          本站访客数<span id="busuanzi_value_site_uv"></span>人
+        
+      
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + MaxSumOfThreeSubarrays + '&url=' + http%3A%2F%2Fexample.com%2F2024%2F11%2F04%2FMaxSumOfThreeSubarrays%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2024/11/04/MaxSumOfThreeSubarrays/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
+  
+  
+<script src="/js/shares.js"></script>
+
+
+
+      </div>
+    </div>
+  
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,d=o();function o(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=o());for(var e,i=0;i<d.length;i++)0<=(e=(e=d[i]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,a,n,o=d[i];e=function(){d=d.filter(function(t){return o!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(o)},(t=o).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,n=t.getAttribute("data-original"),a.onload=function(){t.src=n,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=n},t.src!==n&&(a.src=n)))}()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)}(this);</script></body>
+</html>
